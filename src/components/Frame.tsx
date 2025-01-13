@@ -32,9 +32,8 @@ import { Label } from "~/components/ui/label";
 import { PROJECT_TITLE } from "~/lib/constants";
 
 
-export default function Frame(
-  { title }: { title?: string } = { title: PROJECT_TITLE }
-) {
+export default function Frame() {
+  const title = "hellno.link";
   const [isSDKLoaded, setIsSDKLoaded] = useState(false);
   const [context, setContext] = useState<Context.FrameContext>();
   const [isContextOpen, setIsContextOpen] = useState(false);
@@ -274,11 +273,41 @@ store.subscribe(providerDetails => {
       paddingLeft: context?.client.safeAreaInsets?.left ?? 0,
       paddingRight: context?.client.safeAreaInsets?.right ?? 0 ,
     }}>
-      <div className="w-[300px] mx-auto py-2 px-2">
-        <h1 className="text-2xl font-bold text-center mb-4">{title}</h1>
+      <div className="w-full max-w-[480px] mx-auto py-4 px-4 bg-black text-green-400 font-mono">
+        <h1 className="text-3xl font-bold text-center mb-6 neon-text">{title}</h1>
+        <div className="space-y-4">
+          <a 
+            href="https://warpcast.com/hellno.eth" 
+            target="_blank"
+            className="block p-4 border-2 border-green-400 rounded-lg hover:bg-green-400 hover:text-black transition-all duration-300"
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-2xl">🌐</span>
+              <div>
+                <div className="text-lg font-bold">Warpcast</div>
+                <div className="text-sm text-green-300">@hellno.eth</div>
+              </div>
+            </div>
+          </a>
+          
+          <a 
+            href="https://twitch.tv/hellnotv" 
+            target="_blank"
+            className="block p-4 border-2 border-green-400 rounded-lg hover:bg-green-400 hover:text-black transition-all duration-300"
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-2xl">🎥</span>
+              <div>
+                <div className="text-lg font-bold">Twitch</div>
+                <div className="text-sm text-green-300">hellnotv</div>
+              </div>
+            </div>
+          </a>
+        </div>
 
-        <div className="mb-4">
-          <h2 className="font-2xl font-bold">Context</h2>
+        <div className="mt-8 text-center text-sm text-green-300">
+          <div>東京 | 未来 | 接続</div>
+          <div className="mt-2">v2.3.1</div>
           <PurpleButton
             onClick={toggleContext}
             className="flex items-center gap-2 transition-colors"
@@ -302,8 +331,7 @@ store.subscribe(providerDetails => {
           )}
         </div>
 
-        <div>
-          <h2 className="font-2xl font-bold">Actions</h2>
+        {/* Remove all the actions section */}
 
           <div className="mb-4">
             <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg my-2">
